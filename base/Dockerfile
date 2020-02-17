@@ -3,6 +3,7 @@ FROM julia:1.3.1-stretch
 RUN apt-get update
 RUN apt-get install -y procps
 RUN apt-get install -y python3 python3-pip telnet git wget nano net-tools zip unzip vim
+RUN apt-get install -y apt-transport-https apt-utils
 
 # Install Jupyter
 RUN pip3 install jupyter
