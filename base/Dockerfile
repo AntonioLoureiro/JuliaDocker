@@ -3,7 +3,9 @@ FROM julia:1.3.1-stretch
 RUN apt-get update
 RUN apt-get install -y procps
 RUN apt-get install -y python3 python3-pip telnet git wget nano net-tools zip unzip vim
-RUN apt-get install -y apt-transport-https apt-utils
+RUN apt-get install -y apt-transport-https apt-utils apache2 libsasl2-dev python-dev libldap2-dev libssl-dev  python3-pyldap
+
+
 
 # Install Jupyter
 RUN pip3 install jupyter
@@ -24,6 +26,9 @@ RUN julia -e "import Pkg;Pkg.add(\"DataFrames\")" && \
     julia -e "import Pkg;Pkg.add(\"DataStructures\")" && \
     julia -e "import Pkg;Pkg.add(\"Formatting\")" && \
     julia -e "import Pkg;Pkg.add(\"Parsers\")" && \
+    julia -e "import Pkg;Pkg.add(\"PyCall\")" && \
+    julia -e "import Pkg;Pkg.add(\"ZipFile\")" && \
+    julia -e "import Pkg;Pkg.add(\"XLSX\")" && \
     julia -e "import Pkg;Pkg.add(\"WebSockets\")"
 
 RUN julia -e "import Pkg;Pkg.add(\"IJulia\")" && \
