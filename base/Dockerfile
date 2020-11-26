@@ -1,4 +1,4 @@
-FROM julia:1.5.2-buster
+FROM julia:1.5.3-buster
 
 RUN apt-get update
 RUN apt-get install -y procps
@@ -12,6 +12,7 @@ RUN julia -e "import Pkg;Pkg.add(\"DataFrames\")" && \
     julia -e "import Pkg;Pkg.add(\"CSV\")" && \
     julia -e "import Pkg;Pkg.add(\"XLSX\")" && \
     julia -e "import Pkg;Pkg.add(\"Mongoc\")" && \
+    julia -e "import Pkg;Pkg.add(\"MongocUtils\")" && \
     julia -e "import Pkg;Pkg.add(\"JSON\")" && \
     julia -e "import Pkg;Pkg.add(\"HTTP\")" && \
     julia -e "import Pkg;Pkg.add(\"Plots\")" && \
