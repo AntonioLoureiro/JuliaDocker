@@ -1,4 +1,4 @@
-FROM julia:1.6.0-buster
+FROM julia:1.6.1-buster
 
 RUN apt-get update
 RUN apt-get install -y procps
