@@ -1,4 +1,4 @@
-FROM julia:1.7.0-buster
+FROM julia:1.7.2-buster
 
 RUN apt-get update
 RUN apt-get install -y procps
@@ -21,6 +21,7 @@ RUN julia -e "import Pkg;Pkg.add(\"DataFrames\")" && \
     julia -e "import Pkg;Pkg.add(\"Parsers\")" && \
     julia -e "import Pkg;Pkg.add(\"PyCall\")" && \
     julia -e "import Pkg;Pkg.add(\"ZipFile\")" && \
+    julia -e "import Pkg;Pkg.add(\"EzXML\")" && \
     julia -e "import Pkg;Pkg.add(\"WebSockets\")"
 
 CMD bash
